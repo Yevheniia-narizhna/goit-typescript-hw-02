@@ -1,0 +1,32 @@
+.contact {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 6px;
+  gap: 40px;
+  padding: 8px;
+  align-items: center;
+  justify-content: space-between;
+  height: 154px;
+}
+.button {
+  height: 40px;
+  border: none;
+  transition: background-color 0.3s;
+}
+.button:hover,
+.button:focus {
+  background-color: #dbdbdb !important;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  align-self: flex-start;
+}
+.icon {
+  padding-right: 6px;
+}

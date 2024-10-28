@@ -1,0 +1,6 @@
+.authnavigate {
+  display: flex;
+  gap: 16px;
+  font-size: 24px;
+  font-style: italic;
+}
