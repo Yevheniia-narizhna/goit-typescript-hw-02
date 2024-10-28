@@ -7,7 +7,4 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
-  // optimizeDeps: {
-  //   exclude: ["blip-ds/loader"],
-  // },
 });
