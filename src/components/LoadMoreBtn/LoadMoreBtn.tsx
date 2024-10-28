@@ -1,8 +1,11 @@
 import s from "./LoadMoreBtn.module.css";
-export default function LoadMoreBtn({ onClick }) {
+import { LoadMoBtnProps } from "./LoadMoreBtn.types";
+const LoadMoreBtn: React.FC<LoadMoBtnProps> = ({ onClick }) => {
   return (
     <button className={s.loading} onClick={onClick}>
       Load more
     </button>
   );
-}
+};
+
+export default LoadMoreBtn;

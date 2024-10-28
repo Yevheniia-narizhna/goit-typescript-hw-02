@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import toast from "react-hot-toast";
 import s from "./SearchBar.module.css";
+import { SearchBarProps } from "./SearchBar.types";
 
-export default function SearchBar({ onSubmit }) {
-  const [query, setQuery] = useState("");
+const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
+  const [query, setQuery] = useState<string>("");
 
-  const handleInput = (event) => {
+  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };
-  const handleSearchSubmit = (event) => {
+  const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!query.trim()) {
       toast.error("Please enter a search query.");
@@ -29,8 +30,6 @@ export default function SearchBar({ onSubmit }) {
             name="searchQuery"
             value={query}
             onChange={handleInput}
-            autocomplete="off"
-            autofocus
             placeholder="Search images and photos"
           />
           <button className={s.button} type="submit">
@@ -40,39 +39,6 @@ export default function SearchBar({ onSubmit }) {
       </header>
     </div>
   );
-}
-// import { Field, Form, Formik } from "formik";
-// import toast from "react-hot-toast";
+};
 
-// export default function SearchBar({ setQuery }) {
-//   const initialValues = {
-//     query: "",
-//   };
-//   const handleSubmit = (values, options) => {
-//     const searchFormat = values.query.trim().toLowerCase();
-//     if (!searchFormat) {
-//       toast.error("Please enter a search query.");
-//       return;
-//     }
-//     setQuery(searchFormat);
-//     options.resetForm();
-//   };
-//   return (
-//     <>
-//       <header>
-//         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-//           <Form>
-//             <Field
-//               type="text"
-//               name="search"
-//               autocomplete="off"
-//               autofocus
-//               placeholder="Search images and photos"
-//             />
-//             <button type="submit">Search</button>
-//           </Form>
-//         </Formik>
-//       </header>
-//     </>
-//   );
-// }
+export default SearchBar;

@@ -1,8 +1,9 @@
 import Modal from "react-modal";
 import "./ImageModal.css";
+import { ImageModProp } from "./ImageModal.types";
 Modal.setAppElement("#root");
 
-export default function ImageModal({ picture, onClose }) {
+const ImageModal: React.FC<ImageModProp> = ({ picture, onClose }) => {
   if (!picture) return null;
 
   return (
@@ -22,4 +23,6 @@ export default function ImageModal({ picture, onClose }) {
       />
     </Modal>
   );
-}
+};
+
+export default ImageModal;

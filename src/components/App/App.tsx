@@ -13,7 +13,7 @@ import { Image } from "./App.types";
 function App() {
   const [pictures, setPictures] = useState<Image[]>([]); //Зберігання списку зображень//
   const [isLoading, setIsLoading] = useState<boolean>(false); //Для відображення контенту//
-  const [error, setError] = useState<boolean>(false); //Для відображення помилки//
+  const [error, setError] = useState<string | null>(null); //Для відображення помилки//
   const [page, setPage] = useState<number>(1); //Зберігання поточноі сторінки//
   const [query, setQuery] = useState<string>(""); //Для зберігання пошукового запиту//
   const [selectedPicture, setSelectedPicture] = useState<Image | null>(null); //Для зберігання вибраного зображення для модалки//
@@ -23,13 +23,13 @@ function App() {
     const getData = async () => {
       if (!query) return;
       try {
-        setError(false);
+        setError(null);
         setIsLoading(true);
         const data = await fetchPictures(query, page);
         setIsLoading(false);
         setPictures((prev) => [...prev, ...data.results]);
       } catch {
-        setError(true);
+        setError("Failed to fetch images. Please try again.");
       } finally {
         setIsLoading(false);
         setLoadingMore(false);
