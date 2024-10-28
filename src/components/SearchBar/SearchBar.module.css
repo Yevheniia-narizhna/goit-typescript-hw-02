@@ -3,13 +3,22 @@
   height: 34px;
   border-radius: 6px;
   border-style: none;
-  border: 1px solid black;
+}
+.input:hover,
+.input:focus,
+.button:hover,
+.button:focus {
+  border: 1px solid gray;
+  box-shadow: 0 0 5px black;
+  outline-offset: 0px;
+  outline: none;
 }
 .button {
   height: 34px;
   width: 80px;
   padding: 4px;
 }
+
 .form {
   width: 100vh;
   margin: 0 auto;

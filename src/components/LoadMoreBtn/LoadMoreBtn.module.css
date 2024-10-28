@@ -1,6 +1,11 @@
 .loading {
-  margin-top: 10px;
-  background-color: black;
+  margin: 0 auto;
+  display: block;
+  background-color: #222222;
   color: rgb(255, 255, 255);
   font-style: italic;
+}
+.loading:focus,
+.loading:hover {
+  background-color: #444444;
 }
